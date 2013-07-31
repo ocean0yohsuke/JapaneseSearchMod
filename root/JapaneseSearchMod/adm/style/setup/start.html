@@ -1,0 +1,12 @@
+<!-- IF S_TABMENU eq 'overview' -->
+	<!-- INCLUDE setup/overview.html -->
+<!-- ELSEIF S_TABMENU eq 'setup' -->
+	<!-- INCLUDE setup/setup.html -->
+<!-- ELSEIF S_TABMENU eq 'unsetup' -->
+	<!-- INCLUDE setup/unsetup.html -->
+<!-- ELSE -->
+<div class="errorbox">
+	<h3>{L_WARNING}</h3>
+	<p>Specified tabmenu "{S_TABMENU}" is invalid.</p>
+</div>
+<!-- ENDIF -->

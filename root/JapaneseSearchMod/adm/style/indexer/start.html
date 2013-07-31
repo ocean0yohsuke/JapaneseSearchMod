@@ -1,0 +1,15 @@
+<!-- IF S_TABMENU eq 'overview' -->
+	<!-- INCLUDE indexer/overview.html -->
+<!-- ELSEIF S_TABMENU eq 'phpBB3Native' -->
+	<!-- INCLUDE indexer/phpBB3Native.html -->
+<!-- ELSEIF S_TABMENU eq 'TinySegmenter' -->
+	<!-- INCLUDE indexer/TinySegmenter.html -->
+<!-- ELSEIF S_TABMENU eq 'MeCab' -->
+	<!-- INCLUDE indexer/MeCab.html -->
+<!-- ELSE -->
+<div class="errorbox">
+	<h3>{L_WARNING}</h3>
+	<p>Specified tabmenu "{S_TABMENU}" is invalid.</p>
+</div>
+<!-- ENDIF -->
+

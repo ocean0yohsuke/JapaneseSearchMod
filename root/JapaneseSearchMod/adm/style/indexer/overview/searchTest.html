@@ -1,0 +1,61 @@
+<h1>{TITLE}</h1>
+
+<p>{TITLE_EXPLAIN}</p>
+
+<!-- IF S_ERROR -->
+	<div class="errorbox">
+		<h3>{L_WARNING}</h3>
+		<p>{ERROR_MSG}</p>
+	</div>
+<!-- ENDIF -->
+
+<!-- IF S_NOTICE -->
+	<div class="errorbox notice">
+		<p>{NOTICE_MSG}</p>
+	</div>
+<!-- ENDIF -->
+
+<form id="form" method="post" action="{U_ACTION}">
+
+<input type="text" maxlength="128" name="keyword" value="<!-- IF KEYWORD -->{KEYWORD}<!-- ENDIF -->"/>
+<input type="submit" class="button2" value="{L_SEARCH}" name="submit" />
+&nbsp;
+<label>
+	<input class="radio" name="search_match_type" value="{SEARCHMATCHTYPE_FULL_VALUE}" type="radio" 
+		<!-- IF S_SEARCHMATCHTYPE_FULL_CHECKED -->checked="checked"<!-- ENDIF -->> {L_JSM_FULLTEXTNATIVEJA_SEARCH_MATCH_TYPE_FULL} </input>
+</label>
+<label>
+	<input class="radio" name="search_match_type" value="{SEARCHMATCHTYPE_PARTIAL_VALUE}" type="radio" 
+		<!-- IF S_SEARCHMATCHTYPE_PARTIAL_CHECKED -->checked="checked"<!-- ENDIF -->> {L_JSM_FULLTEXTNATIVEJA_SEARCH_MATCH_TYPE_PARTIAL} </input>
+</label>
+{S_FORM_TOKEN}
+</form>
+
+<table cellspacing="1" >
+<tr style="background-color:#FAEBD7;">
+	<td>
+	<!-- IF SEARCH_TIME -->
+	<i>検索にかかった時間 : </i> {SEARCH_TIME} 秒
+	<!-- ELSE -->
+	<span style="float: right;">{PAGE_NUMBER}</span>
+	<b>インデクステーブル </b>  
+	<!-- ENDIF -->
+	</td>
+</tr>
+<!-- BEGIN wordrow -->
+<tr>
+	<td>{wordrow.WORD_TEXT}</td>
+</tr>
+<!-- END wordrow -->
+</table>
+
+<div class="pagination">
+	<!-- IF TOTAL_WORDS -->{TOTAL_WORDS} 件 <!-- ENDIF -->
+	<!-- IF PAGE_NUMBER -->
+		<!-- IF PAGINATION -->
+		 &bull; {PAGE_NUMBER} &bull; <span>{PAGINATION}</span>
+		<!-- ELSE -->
+		 &bull; {PAGE_NUMBER}
+		<!-- ENDIF -->
+	<!-- ENDIF -->
+</div>

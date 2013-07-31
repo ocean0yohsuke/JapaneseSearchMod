@@ -1,0 +1,70 @@
+<!-- IF S_OPENERWINDOW_RELOAD -->
+<script type = "text/javascript">
+<!--
+window.onload = function (){
+	window.opener.location.reload(); 
+}
+//-->
+</script>
+<!-- ENDIF -->
+
+<a name="maincontent"></a>
+
+<h1>{TITLE}</h1>
+
+<p>{TITLE_EXPLAIN}</p>
+
+<!-- IF S_FORM_ERROR -->
+<div class="errorbox">
+	<h3>{L_WARNING}</h3>
+	<p>{FORM_ERROR_MSG}</p>
+</div>
+<!-- ENDIF -->
+
+<!-- IF S_SETUP_ERROR -->
+<div class="errorbox">
+	<h3>{L_WARNING}</h3>
+	<p>{SETUP_ERROR_MSG}</p>
+</div>
+<!-- ENDIF -->
+
+<!-- IF S_NOTICE -->
+	<div class="errorbox notice">
+		<p>{NOTICE_MSG}</p>
+	</div>
+<!-- ENDIF -->
+
+<form id="acp_board" method="post" action="{U_ACTION}">
+
+<!-- BEGIN options -->
+	<!-- IF options.S_LEGEND -->
+		<!-- IF not options.S_FIRST_ROW -->
+		</fieldset>
+		<!-- ENDIF -->
+		<fieldset>
+			<legend>{options.LEGEND}</legend>
+			<!-- IF options.LEGEND_EXPLAIN --><p>{options.LEGEND_EXPLAIN}</p><!-- ENDIF -->
+			<p><b>{L_JSM_MECAB_SETUP_TEST}</b> : {options.WAKACHIGAKITEST_RESULT}</p>
+	<!-- ELSE -->
+		<dl>
+			<dt><label for="{options.KEY}">{options.TITLE}:</label><!-- IF options.S_EXPLAIN --><br /><span>{options.TITLE_EXPLAIN}</span><!-- ENDIF --></dt>
+			<dd>{options.CONTENT}</dd>
+		</dl>
+	<!-- ENDIF -->
+<!-- END options -->
+		</fieldset>
+
+<!-- IF S_SHOW_BUTTONS -->
+		<fieldset>
+			<legend>{L_JSM_MECAB_SETUP_SUBMIT}</legend>
+			{L_JSM_MECAB_SETUP_SUBMIT_EXPLAIN}
+			<p class="submit-buttons">
+				<input class="button1" type="submit" id="submit" name="submit" value="{L_JSM_MECAB_SETUP_SUBMIT}" />&nbsp;
+				<input class="button1" type="submit" id="submit_auto" name="submit_auto" value="{L_JSM_MECAB_SETUP_SUBMIT_AUTO}" />&nbsp;
+				<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+			</p>
+		{S_FORM_TOKEN}
+		</fieldset>
+<!-- ENDIF -->
+
+</form>

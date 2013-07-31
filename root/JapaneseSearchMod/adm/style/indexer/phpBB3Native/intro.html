@@ -1,0 +1,38 @@
+<h1>インデクスエンジン phpBB3Native について</h1>
+<p>Fulltext native の 分かち書き処理コード を 日本語対応の分かち書き処理コードに改良したものがこのインデクスエンジンです。部分一致検索時に威力を発揮します。</p>
+
+<h2>分かち書き処理 </h2>
+<p>以下は全て 分かち書きレベル１ で分かち書きされた例です。</p>
+
+<h3>例１</h3>
+<pre>
+以下の文章
+
+<i>君が代は日本の国歌です</i>
+
+は以下のように分かち書きされます。
+
+<i>君&nbsp;|&nbsp;が&nbsp;|&nbsp;代&nbsp;|&nbsp;は&nbsp;|&nbsp;日本&nbsp;|&nbsp;の&nbsp;|&nbsp;国歌&nbsp;|&nbsp;です</i>
+</pre>
+
+<h3>例２</h3>
+<pre>
+以下の文章
+
+<i>私の好きな日本のアニメはドラえもんととなりのトトロです</i>
+
+は以下のように分かち書きされます。
+
+<i>私&nbsp;|&nbsp;の&nbsp;|&nbsp;好&nbsp;|&nbsp;きな&nbsp;|&nbsp;日本&nbsp;|&nbsp;の&nbsp;|&nbsp;アニメ&nbsp;|&nbsp;は&nbsp;|&nbsp;ドラ&nbsp;|&nbsp;えもんととなりの&nbsp;|&nbsp;トトロ&nbsp;|&nbsp;です</i>
+</pre>
+
+<h3>例３</h3>
+<pre>
+以下の文章
+
+<i>東京タワーの高さは３３３ｍです</i>
+
+は以下のように分かち書きされます。
+
+<i>東京タワー&nbsp;|&nbsp;の&nbsp;|&nbsp;高&nbsp;|&nbsp;さは&nbsp;|&nbsp;３３３ｍ&nbsp;|&nbsp;です</i>
+</pre>

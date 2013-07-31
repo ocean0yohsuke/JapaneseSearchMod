@@ -1,0 +1,12 @@
+<!-- IF S_SIDEMENU eq 'intro' -->
+	<!-- INCLUDE indexer/overview/intro.html -->
+<!-- ELSEIF S_SIDEMENU eq 'indexTest' -->
+	<!-- INCLUDE indexer/overview/indexTest.html -->
+<!-- ELSEIF S_SIDEMENU eq 'searchTest' -->
+	<!-- INCLUDE indexer/overview/searchTest.html -->
+<!-- ELSE -->
+<div class="errorbox">
+	<h3>{L_WARNING}</h3>
+	<p>Specified sidemenu "{S_SIDEMENU}" is invalid.</p>
+</div>
+<!-- ENDIF -->

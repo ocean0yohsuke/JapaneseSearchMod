@@ -1,0 +1,10 @@
+<!-- IF S_SIDEMENU eq 'intro' -->
+	<!-- INCLUDE indexer/phpBB3Native/intro.html -->
+<!-- ELSEIF S_SIDEMENU eq 'config' -->
+	<!-- INCLUDE indexer/phpBB3Native/config.html -->
+<!-- ELSE -->
+<div class="errorbox">
+	<h3>{L_WARNING}</h3>
+	<p>Specified sidemenu "{S_SIDEMENU}" is invalid.</p>
+</div>
+<!-- ENDIF -->

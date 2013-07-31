@@ -1,0 +1,55 @@
+<h1>phpBB3 のインデクス処理について</h1>
+<p>インデクス （index） とは索引付けの事であり、具体的には記事が投稿された際に記事の件名と文章中に含まれるキーワードを抜き出してデータベースに保管する事を意味します。
+検索処理はデータベースに保管されたこのインデクス情報を基にして行われます。
+phpBB3 ではこのインデクス処理を行うエンジンを検索バックエンドと呼び、ユーザーが選択できる仕様になっています。</p>
+
+<h2>Fulltext mysql</h2>
+<p>phpBB3 が初期装備している検索バックエンドの１つです。 MySQL の全文検索機能を利用した検索バックエンドです。
+Fulltext mysql を利用するには当然ながらデータベースが MySQL である必要があります。 MySQL が Senna対応 (Tritonn) であれば日本語文章をうまくインデクスしてくれる可能性はありますが、そうでない場合は期待できません。
+ ただ、 Tritonn であっても phpBB3 からはインデクスの最小文字数を指定できないのでサーバ管理者以外の方は使わない方が良いでしょう。</p>
+
+<h2>Fulltext native</h2>
+<p>phpBB3 が初期装備している検索バックエンドの１つです。 この検索バックエンドは、 英語・フランス語・ドイツ語・イタリア語のようなラテン文字系の言語（単語と単語の間にスペースを挟む言語） には対応していますが、
+一方 日本語のような言語（単語と単語の間にスペースを挟まない言語） には対応していません。
+この検索バックエンドはラテン文字系の言語には完璧に対応していますが、そうでない場合は全く期待できません。</p>
+
+<h2>Fulltext native ja</h2>
+<p>JapaneseSearchMod によって追加された検索バックエンドです。
+Fulltext native を日本語に対応させた検索バックエンドです。 
+Fulltext native ja ではインデクスを行うエンジンがいくつか用意されており、環境に合わせてユーザーが選択できます。
+
+<table>
+	<thead>
+		<tr>
+			<th>インデクスエンジン</th>
+			<th style="text-align:center;">インデクス作成速度</th>
+			<th style="text-align:center;">検索精度 （完全一致）／（部分一致）</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>phpBB3Native</td>
+			<td style="text-align:center;">☆</td>
+			<td style="text-align:center;">Ｘ ／ ☆</td>
+		</tr>
+		<tr>
+			<td>TinySegmenter</td>
+			<td style="text-align:center;">Ｘ</td>
+			<td style="text-align:center;">〇 ／ ◎</td>
+		</tr>
+		<tr>
+			<td>MeCab （PHP拡張モジュール）</td>
+			<td style="text-align:center;">◎</td>
+			<td style="text-align:center;">◎ ／ ☆</td>
+		</tr>
+		<tr>
+			<td>MeCab （コマンドライン）</td>
+			<td style="text-align:center;">Ｘ</td>
+			<td style="text-align:center;">◎ ／ ☆</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+
+各インデクスエンジンの詳細については上のタブからオプションを選択してください。
+</p>

@@ -1,0 +1,24 @@
+<!-- IF not S_SETUP_DONE -->
+<div class="errorbox">
+	<h3>{L_INFORMATION}</h3>
+	<p>{INFORMATION_MESSAGE}</p>
+</div>
+<!-- INCLUDE setup/includes/uninstall_message.html -->
+<!-- ELSE -->
+
+<h1>アンセットアップ</h1>
+
+<p>ここではセットアップを解除できます。セットアップを解除したい場合は下の実行ボタンをクリックしてください。</p>
+
+<form method="post" action="{U_ACTION}" onsubmit="submit.disabled = 'disabled';">
+
+	<fieldset class="submit-buttons">
+		<legend>{L_RUN}</legend>
+		<input class="button1" type="submit" onclick="this.className = 'button1 disabled';" name="submit" value="{L_RUN}" />
+	</fieldset>
+	
+{S_FORM_TOKEN}
+</form>
+
+<!-- ENDIF -->
+

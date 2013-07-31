@@ -1,0 +1,41 @@
+<h1>インデクスエンジン MeCab について</h1>
+<p>オープンソース形態素解析エンジン MeCab を利用したインデクスエンジンです。
+他のインデクスエンジンと違って形態素解析が可能です。
+MeCab辞書 は IPADIC を想定しています。
+もし MeCab を利用できる環境ならこのインデクスエンジンを利用することをお勧めします。</p>
+
+<h2>分かち書き処理</h2>
+<p>以下は全て 分かち書きレベル２ で分かち書きされた例です。</p>
+
+<h3>例１</h3>
+<pre>
+以下の文章
+
+<i>君が代は日本の国歌です</i>
+
+は以下のように分かち書きされます。
+
+<i>君が代&nbsp;|&nbsp;は&nbsp;|&nbsp;日本&nbsp;|&nbsp;の&nbsp;|&nbsp;国歌&nbsp;|&nbsp;です</i>
+</pre>
+
+<h3>例２</h3>
+<pre>
+以下の文章
+
+<i>私の好きな日本のアニメはドラえもんととなりのトトロです</i>
+
+は以下のように分かち書きされます。
+
+<i>私&nbsp;|&nbsp;の&nbsp;|&nbsp;好き&nbsp;|&nbsp;な&nbsp;|&nbsp;日本&nbsp;|&nbsp;の&nbsp;|&nbsp;アニメ&nbsp;|&nbsp;は&nbsp;|&nbsp;ドラえもん&nbsp;|&nbsp;と&nbsp;|&nbsp;となり&nbsp;|&nbsp;の&nbsp;|&nbsp;トトロ&nbsp;|&nbsp;です</i>
+</pre>
+
+<h3>例３</h3>
+<pre>
+以下の文章
+
+<i>東京タワーの高さは３３３ｍです</i>
+
+は以下のように分かち書きされます。
+
+<i>東京タワー&nbsp;|&nbsp;の&nbsp;|&nbsp;高&nbsp;|&nbsp;さ&nbsp;|&nbsp;は&nbsp;|&nbsp;３３３ｍ&nbsp;|&nbsp;です</i>
+</pre>

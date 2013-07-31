@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http
+://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+	<header>
+		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+
+		<title lang="en">JapaneseSearchMod</title>
+		<title lang="ja">JapaneseSearchMod</title>
+
+		<description lang="en">
+この MOD は phpBB3 の検索機能を日本語に対応させるための MOD です。より具体的には、
+* インデクス処理 - 新しい検索バックエンド "Fulltext native ja" を追加
+* 検索処理 - 検索キーワードの分かち書き処理と正確なハイライト処理
+の２点を行います。</description>
+		<description lang="ja">
+この MOD は phpBB3 の検索機能を日本語に対応させるための MOD です。より具体的には、
+* インデクス処理 - 新しい検索バックエンド "Fulltext native ja" を追加
+* 検索処理 - 検索キーワードの分かち書き処理と正確なハイライト処理
+の２点を行います。</description>
+
+		<author-notes lang="en">PHP5.1.2 以上で動作します</author-notes>
+		<author-notes lang="ja">PHP5.1.2 以上で動作します</author-notes>
+
+		<author-group>
+			<author>
+				<realname>Yohsuke</realname>
+				<username phpbbcom="no">ocean=Yohsuke</username>
+				<homepage>http://www.bbmods.info/bbs/</homepage>
+ 			</author>
+		</author-group>
+
+		<mod-version>2.3.4</mod-version>
+
+		<installation>
+			<level>easy</level>
+			<time>300</time>
+			<target-version>3.0.10</target-version>
+		</installation>
+
+		<history>
+			<entry>
+				<date>2012-03-24</date>
+				<rev-version>2.3.4</rev-version>
+				<changelog lang="ja">
+					<change>文字の正準化を無効に設定できるようにしました。サーバの CPU 負荷を減らせます。</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2012-02-08</date>
+				<rev-version>2.3.3</rev-version>
+				<changelog lang="ja">
+					<change>MOD のタイトルを JapaneseSearchMod に修正</change>
+					<change>AdminPanel のロジック周りを修正</change>
+					<change>言語ファイルを不要に</change>
+					<change>phpBB3Native - 'ー' がひらがなと判定されない問題を修正</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-11-27</date>
+				<rev-version>2.3.2</rev-version>
+				<changelog lang="ja">
+					<change>- を含むキーワードがハイライトされない問題を修正</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-11-10</date>
+				<rev-version>2.3.1</rev-version>
+				<changelog lang="ja">
+					<change>MeCab - コンフィグファイルの削除</change>
+					<change>phpBB3Native - 分かち書きレベル０ の追加 </change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-10-30</date>
+				<rev-version>2.3.0</rev-version>
+				<changelog lang="ja">
+					<change>()| 以外の ASCII 文字を検索できるようにしました。index.html や c:\ といったキーワードが検索できるようになります。</change>
+					<change>fulltext_native_ja と phpBB3Native と MeCab の各クラスのロジックを大幅に修正しました</change>
+					<change>MeCab コンフィグページを追加</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-10-03</date>
+				<rev-version>2.2.1</rev-version>
+				<changelog lang="ja">
+					<change>phpBB3Native を部分一致検索に合わせて大幅に修正</change>
+					<change>部分一致検索時、最小字数より小さい字数のキーワードがヒットしてしまう問題を修正</change>
+					<change>@set_time_limit(0); を各インデクスエンジンに追加。インデクス再構築時に処理が中断する可能性を減らしました。</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-09-29</date>
+				<rev-version>2.2.0</rev-version>
+				<changelog lang="ja">
+					<change>fulltext_native_ja の設定オプションに "検索一致タイプ" を追加しました。"完全一致" と "部分一致" の２つを選択できます。</change>
+					<change>viewtopic.php の "このトピックから検索..." で検索した場合、トピックの件名を検索対象に含めるように修正しました。</change>
+					<change>インデクスエンジン phpBB3Native の設定オプションに "漢字を１文字ずつに分割する" を追加しました。デフォルトで "いいえ" にしています。</change>
+					<change>キーワード検索時にキーワードが分かち書きされない場合がある症状を修正しました</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-09-15</date>
+				<rev-version>2.1.0</rev-version>
+				<changelog lang="ja">
+					<change>セットアップパネルページを追加しました。セットアップを完了しないと動作しません。これでアップデートの際にエラーが出る問題はある程度解決されたと思います - エラー報告して下さった Jaken さんに感謝。</change>
+					<change>TinySegmenter のクラスファイルを同梱しました</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-07-15</date>
+				<rev-version>2.0.6</rev-version>
+				<changelog lang="ja">
+					<change>アーキテクチャを変更</change>
+					<change>インデクスの最小字数未満の字数の漢字がハイライトされない不具合を修正</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-03-18</date>
+				<rev-version>2.0.5</rev-version>
+				<changelog lang="ja">
+					<change>+-()| を利用したクエリ検索が viewtopic.php で正常に動作してなかった問題を修正</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-03-11</date>
+				<rev-version>2.0.4</rev-version>
+				<changelog lang="ja">
+					<change>+-()| を利用したクエリ検索が正常に動作してなかった問題を修正</change>
+					<change>JapaneseSearchMOD_updater.php を追加</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-02-06</date>
+				<rev-version>2.0.3</rev-version>
+				<changelog lang="ja">
+					<change>ディレクトリ名とファイル名を変更</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-01-30</date>
+				<rev-version>2.0.2</rev-version>
+				<changelog lang="ja">
+					<change>TinySegmenter エンジン - tiny_segmenter.php が存在しないときに検索ページで PHP エラーが表示される問題を修正</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-01-29</date>
+				<rev-version>2.0.1</rev-version>
+				<changelog lang="ja">
+					<change>Japanese Search MOD パネル の “分かち書きテスト” で Native エンジンがきちんと動作していなかった問題を修正</change>
+					<change>MeCab エンジンを改良</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-01-15</date>
+				<rev-version>2.0.0</rev-version>
+				<changelog lang="ja">
+					<change>MOD 名を Japanese search mod から Japanese Search MOD へ変更。</change>
+					<change>Admin 専用の JapaneseSearchMODパネル を追加。これにより PHP5 以上が必要に。</change>
+					<change>クラスとファイルの構造を大幅に変更。</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-08-02</date>
+				<rev-version>1.1.10</rev-version>
+				<changelog lang="ja">
+					<change>phpbb-quickinstall 使用時にエラーが出る問題を修正</change>
+					<change>Nativeエンジン - インデクスの最小文字数より小さい字数のキーワードをインデクスしてしまっていた問題を修正</change>
+					<change>半角英数字のハイライト条件を緩和</change>
+					<change>TinySegmenterエンジン - PHP4、mbstringなし でも使用可能に。ライセンスの問題でコアファイルを分離。</change>
+				</changelog>
+			</entry>		
+			<entry>
+				<date>2010-07-24</date>
+				<rev-version>1.1.9</rev-version>
+				<changelog lang="ja">
+					<change>全角アルファベットがきちんとハイライトされない問題を修正</change>
+				</changelog>
+			</entry>		
+			<entry>
+				<date>2010-06-01</date>
+				<rev-version>1.1.8</rev-version>
+				<changelog lang="ja">
+					<change>viewtopic.php ページでもきちんと検索キーワードがハイライトされるように修正</change>
+					<change>クエリ検索がうまくいってなかった問題を修正</change>
+					<change>Support-Toolkit 使用時にエラーが表示される問題を修正</change>
+				</changelog>
+			</entry>		
+			<entry>
+				<date>2010-03-14</date>
+				<rev-version>1.1.7</rev-version>
+				<changelog lang="ja">
+					<change>MeCab エンジン - ある環境で MeCab コンフィグファイル config.php の自動作成がうまくいかなかった問題の修正 - Jaken さんに感謝</change>
+				</changelog>
+			</entry>		
+			<entry>
+				<date>2010-03-04</date>
+				<rev-version>1.1.6</rev-version>
+				<changelog lang="ja">
+					<change>phpBB3.0.7 の変更を includes/search/fulltext_native_ja.php に反映</change>
+				</changelog>
+			</entry>		
+			<entry>
+				<date>2010-02-19</date>
+				<rev-version>1.1.5</rev-version>
+				<changelog lang="ja">
+					<change>MeCabエンジン - PHP拡張モジュール経由で MeCabエンジン を使用できる状況であるにもかかわらず、AdminCP の検索設定ページにおいて MeCabエンジン を選択できない問題を修正 - tetsu さんに感謝</change>
+					<change>exec 関数を使用しないようにしました</change>
+					<change>includes/ja_search/MeCab/doc.txt の内容を加筆修正</change>
+				</changelog>
+			</entry>		
+			<entry>
+				<date>2009-12-08</date>
+				<rev-version>1.1.4</rev-version>
+				<changelog lang="ja">
+					<change>PHP4 でエラーが表示される問題を修正（1.1.3 のバグ）</change>
+				</changelog>
+			</entry>		
+			<entry>
+				<date>2009-11-01</date>
+				<rev-version>1.1.3</rev-version>
+				<changelog lang="ja">
+					<change>exec 関数の使用が禁止されている環境で PHP エラーが表示される問題を修正</change>
+				</changelog>
+			</entry>		
+			<entry>
+				<date>2009-08-30</date>
+				<rev-version>1.1.2</rev-version>
+				<changelog lang="ja">
+					<change>MeCabエンジン - MeCab 環境設定ファイルを自動で作成する機能を追加</change>
+					<change>"インデクス化の最小文字数" を 3 以上に設定している場合、Nativeエンジン 以外のエンジンで "ご飯" "お題" "お盆" ""お勧め" "たい焼き" 等のキーワード（最初の文字が漢字以外の文字で始まり、その後に漢字を１つでも含むキーワード）がインデクス化されない問題を修正</change>
+					<change>コンフィグ設定値のチェックを AdminCP にアクセスした時に行うように修正（オーバーヘッドの軽減）</change>
+				</changelog>
+			</entry>		
+			<entry>
+				<date>2009-07-23</date>
+				<rev-version>1.1.1</rev-version>
+				<changelog lang="ja">
+					<change>PCRE UNICODEプロパティ を扱えない環境で PHPエラー が出る問題を修正</change>
+				</changelog>
+			</entry>		
+			<entry>
+				<date>2009-06-29</date>
+				<rev-version>1.1.0</rev-version>
+				<changelog lang="ja">
+					<change>phpBB3.0.5 での Fulltext native に対する変更を Fulltext native ja にも適用しました。検索キーワードが多すぎると検索処理が行われなくなります。</change>
+					<change>Native エンジンを追加しました。より正確に言えば、TinySegmenter エンジンを完全に独立させました。TinySegmenter エンジンを使用するには PHP拡張モジュール mbstring がサポートされていることと PHP のバージョンが 5 以上である必要があります</change>
+					<change>MeCab エンジン - MeCab.config で拡張モジュールのファイル名を指定する必要がなくなりました</change>
+					<change>ハイライト表示に関する問題点を修正しました。</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-06-12</date>
+				<rev-version>1.0.1</rev-version>
+				<changelog lang="ja">
+					<change>TinySegmenter エンジン使用時に、全文検索が無効に設定されている時は ja_dictionary ファイルの存在をチェックするように修正</change>
+					<change>@ini_set('memory_limit', '128M'); を ja_search_al.php から削除</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-06-01</date>
+				<rev-version>1.0.0a</rev-version>
+				<changelog lang="ja">
+					<change>無駄なコードを削除して半角アルファベットの場合に検索処理が少しだけ速くなりました。</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-05-12</date>
+				<rev-version>1.0.0</rev-version>
+				<changelog lang="ja">
+					<change>一段落ついたと思うので 1.0.0 としてリリースします。0.0.5 からの目立った変更点は特にありません。</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-05-05</date>
+				<rev-version>0.0.5</rev-version>
+				<changelog lang="ja">
+					<change>MeCabエンジン が PHP拡張モジュール でも動作するように - tEnd さんに感謝</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-05-03</date>
+				<rev-version>0.0.4</rev-version>
+				<changelog lang="ja">
+					<change>Unix系OS で MeCabエンジン が動作しない問題を修正 - tEnd さんに感謝</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-04-29</date>
+				<rev-version>0.0.3</rev-version>
+				<changelog lang="ja">
+					<change>MeCabエンジン を追加</change>
+					<change>その他いろいろ修正</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-04-10</date>
+				<rev-version>0.0.2</rev-version>
+				<changelog lang="ja">
+					<change>検索にヒットしない漢字を検索した場合、"無効な検索キーワード" として扱われる問題を修正</change>
+					<change>Fulltext native ja のコンフィグ設定が反映されない問題を修正</change>
+					<change>キーワードを全角スペースで区切った場合に検索結果がハイライト表示されない問題を修正</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-04-08</date>
+				<rev-version>0.0.1</rev-version>
+				<changelog lang="ja">
+					<change>First released</change>
+				</changelog>
+			</entry>
+		</history>
+	</header>
+
+	<action-group>
+		<copy>
+			<file from="root/includes/hooks/hook_JapaneseSearchMod.php" to="includes/hooks/hook_JapaneseSearchMod.php" />
+			<file from="root/includes/search/fulltext_native_ja.php" to="includes/search/fulltext_native_ja.php" />
+			<file from="root/JapaneseSearchMod/*.*" to="JapaneseSearchMod/*.*" />
+		</copy>
+		<open src="search.php">
+			<edit>
+				<find><![CDATA[	$hilit = implode('|', explode(' ', preg_replace('#\s+#u', ' ', str_replace(array('+', '-', '|', '(', ')', '&quot;'), ' ', $keywords))));]]></find>
+				<action type="replace-with"><![CDATA[	$hilit = $GLOBALS['phpBB3_JapaneseSearchModHighlight']->highlightFilter($search->search_query); // JapaneseSearchMod]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[				$row['topic_title'] = preg_replace('#(?!<.*)(?<!\w)(' . $hilit . ')(?!\w|[^<>]*(?:</s(?:cript|tyle))?>)#is', '<span class="posthilit">$1</span>', $row['topic_title']);]]></find>
+				<action type="replace-with"><![CDATA[				$row['topic_title'] = $GLOBALS['phpBB3_JapaneseSearchModHighlight']->highlight($hilit, $row['topic_title']); // JapaneseSearchMod]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[					$row['post_text'] = preg_replace('#(?!<.*)(?<!\w)(' . $hilit . ')(?!\w|[^<>]*(?:</s(?:cript|tyle))?>)#is', '<span class="posthilit">$1</span>', $row['post_text']);
+					$row['post_subject'] = preg_replace('#(?!<.*)(?<!\w)(' . $hilit . ')(?!\w|[^<>]*(?:</s(?:cript|tyle))?>)#is', '<span class="posthilit">$1</span>', $row['post_subject']);]]></find>
+				<action type="replace-with"><![CDATA[					$row['post_text'] = $GLOBALS['phpBB3_JapaneseSearchModHighlight']->highlight($hilit, $row['post_text']); // JapaneseSearchMod
+					$row['post_subject'] = $GLOBALS['phpBB3_JapaneseSearchModHighlight']->highlight($hilit, $row['post_subject']); // JapaneseSearchMod
+]]></action>
+			</edit>
+		</open>
+		<open src="viewtopic.php">
+			<edit>
+				<find><![CDATA[	'sf' => 'msgonly',]]></find>
+				<action type="replace-with"><![CDATA[	//'sf' => 'msgonly', // JapaneseSearchMod]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[		$message = preg_replace('#(?!<.*)(?<!\w)(' . $highlight_match . ')(?!\w|[^<>]*(?:</s(?:cript|tyle))?>)#is', '<span class="posthilit">\1</span>', $message);
+		$row['post_subject'] = preg_replace('#(?!<.*)(?<!\w)(' . $highlight_match . ')(?!\w|[^<>]*(?:</s(?:cript|tyle))?>)#is', '<span class="posthilit">\1</span>', $row['post_subject']);]]></find>
+				<action type="replace-with"><![CDATA[		$message = $GLOBALS['phpBB3_JapaneseSearchModHighlight']->highlight($highlight_match, $message); // JapaneseSearchMod
+		$row['post_subject'] = $GLOBALS['phpBB3_JapaneseSearchModHighlight']->highlight($highlight_match, $row['post_subject']); // JapaneseSearchMod]]></action>
+			</edit>
+		</open>
+		<diy-instructions lang="ja"><![CDATA[1.	AdminCP へ入室し、"キャッシュの消去" を実行してください
+
+2.	AdminCP -> メイン（タブ） -> 検索設定（サイドメニュー）
+	における "検索バックエンド" を "Fulltext native ja" に設定してください
+
+3.	AdminCP -> メンテナンス（タブ） -> 検索インデクス（サイドメニュー） 
+	にて "Fulltext native ja" のインデクスを再構築してください]]></diy-instructions>
+	</action-group>
+</mod>

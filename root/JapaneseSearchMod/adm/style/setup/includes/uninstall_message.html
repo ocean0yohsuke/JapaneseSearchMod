@@ -1,0 +1,22 @@
+<h2>アンインストール</h2>
+<p>JapaneseSearchMod をアンインストールするには、
+<ol>
+	<!-- IF S_SEARCHTYPE_IS_FULLTEXTNATIVEJA -->
+	<li>AdminCP の “検索設定” ページ の “検索バックエンド” を “Fulltext native ja” 以外に設定し、</li>
+	<!-- ENDIF -->
+	<li>JapaneseSearchMod によって変更されている以下のファイル内のコードを元のコードに戻し、
+		<ul>
+			<li><i>root/</i><b>search.php</b></li>
+			<li><i>root/</i><b>viewtopic.php</b></li>
+		</ul>
+	</li>
+	<li>以下のディレクトリ及びファイルを手動で削除し、
+		<ul>
+			<li><i>root/</i>includes/hooks/<b>hook_JapaneseSearchMod.php</b> - ファイル</li>
+			<li><i>root/</i>includes/search/<b>fulltext_native_ja.php</b> - ファイル</li>
+			<li><i>root/</i><b>JapaneseSearchMod</b> - ディレクトリ</li>
+		</ul>
+	</li>
+	<li>AdminCP で “キャッシュの消去” を行ってください。</li>
+</ol>
+</p>

@@ -1,0 +1,10 @@
+<!-- IF S_SIDEMENU eq 'intro' -->
+	<!-- INCLUDE indexer/TinySegmenter/intro.html -->
+<!-- ELSEIF S_SIDEMENU eq 'setup' -->
+	<!-- INCLUDE indexer/TinySegmenter/setup.html -->
+<!-- ELSE -->
+<div class="errorbox">
+	<h3>{L_WARNING}</h3>
+	<p>Specified sidemenu "{S_SIDEMENU}" is invalid.</p>
+</div>
+<!-- ENDIF -->

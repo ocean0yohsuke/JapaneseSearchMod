@@ -1,0 +1,12 @@
+<!-- IF S_SIDEMENU eq 'intro' -->
+	<!-- INCLUDE indexer/MeCab/intro.html -->
+<!-- ELSEIF S_SIDEMENU eq 'config' -->
+	<!-- INCLUDE indexer/MeCab/config.html -->
+<!-- ELSEIF S_SIDEMENU eq 'setup' -->
+	<!-- INCLUDE indexer/MeCab/setup.html -->
+<!-- ELSE -->
+<div class="errorbox">
+	<h3>{L_WARNING}</h3>
+	<p>Specified sidemenu "{S_SIDEMENU}" is invalid.</p>
+</div>
+<!-- ENDIF -->

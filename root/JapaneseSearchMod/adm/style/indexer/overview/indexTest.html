@@ -1,0 +1,42 @@
+<h1>{TITLE}</h1>
+
+<p>{TITLE_EXPLAIN}</p>
+
+<!-- IF S_ERROR -->
+	<div class="errorbox">
+		<h3>{L_WARNING}</h3>
+		<p>{ERROR_MSG}</p>
+	</div>
+<!-- ENDIF -->
+
+<!-- IF S_NOTICE -->
+	<div class="errorbox notice">
+		<p>{NOTICE_MSG}</p>
+	</div>
+<!-- ENDIF -->
+
+<form id="form" method="post" action="{U_ACTION}">
+	<textarea name="input_text" rows="5" cols="40" style="width:100%;"><!-- IF INPUT_TEXT -->{INPUT_TEXT}<!-- ENDIF --></textarea>
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+	</p>
+{S_FORM_TOKEN}
+</form>
+
+<br />
+
+<!-- BEGIN engine -->
+<table cellspacing="1" style="margin-bottom:5px;">
+	<thead>
+		<tr>
+			<th>{engine.NAME} ／ <span>{engine.TIME} {L_JSM_INDEXTEST_MICROSECONDS}</span></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{engine.WAKACHIGAKI_TEXT}</td>
+		</tr>
+	</tbody>
+</table>
+<!-- END engine -->
