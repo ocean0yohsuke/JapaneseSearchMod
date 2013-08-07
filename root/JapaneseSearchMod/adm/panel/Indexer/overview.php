@@ -1,5 +1,5 @@
 <?php
-class phpBB3_JapaneseSearchModAdmPanel_Indexer_Overview extends phpBB3_JapaneseSearchModAdmPanel_BaseMenu
+class phpBB3_JapaneseSearchModAdmPanel_Indexer_overview extends phpBB3_JapaneseSearchModAdmPanel_BaseMenu
 {
 	function main($current_page)
 	{
