@@ -1,14 +1,15 @@
 <?php
 /**
- * DO NOT CHANGE!
- */
+* DO NOT CHANGE!
+*/
 if(!defined('IN_PHPBB'))
 {
 	exit;
 }
 
 // register hook
-if (isset($phpbb_root_path) && $phpbb_root_path == './')
+if (isset($phpbb_root_path) && $phpbb_root_path == './'
+ && !(defined('IN_INSTALL') && IN_INSTALL == true))
 {
 	$phpbb_hook->register('phpbb_user_session_handler', array(new phpBB3_hook_JapaneseSearchMod(), 'session'));
 }
