@@ -31,12 +31,12 @@
  			</author>
 		</author-group>
 
-		<mod-version>2.3.4</mod-version>
+		<mod-version>2.3.4a</mod-version>
 
 		<installation>
 			<level>easy</level>
 			<time>300</time>
-			<target-version>3.0.10</target-version>
+			<target-version>3.0.12</target-version>
 		</installation>
 
 		<history>
