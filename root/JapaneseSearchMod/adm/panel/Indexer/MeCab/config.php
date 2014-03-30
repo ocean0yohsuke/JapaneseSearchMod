@@ -27,7 +27,7 @@ class phpBB3_JapaneseSearchModAdmPanel_Indexer_MeCab_config extends phpBB3_Japan
 								'validate' => 'string',
 								'type' => 'select',
 								'object' => $this,
-								'method' => 'build_cfg_template_wakachigaki_wakachigaki_level',
+								'method' => 'build_cfg_template_wakachigaki_level',
 								'explain' => true 
 						),
 						'renzoku_hinshi' => array (
@@ -140,7 +140,7 @@ class phpBB3_JapaneseSearchModAdmPanel_Indexer_MeCab_config extends phpBB3_Japan
 	/**
 	 * Required chars in passwords
 	 */
-	function build_cfg_template_wakachigaki_wakachigaki_level($selected_value) {
+	function build_cfg_template_wakachigaki_level($selected_value) {
 		global $user;
 		
 		$type_ary = array (

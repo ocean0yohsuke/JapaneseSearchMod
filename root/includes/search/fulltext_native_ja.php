@@ -620,7 +620,8 @@ class fulltext_native_ja extends fulltext_native
 				{
 					$this->common_words[] = $keyword_part;
 				} else {
-					if ($this->in_words_match($index_words, $keyword_part, $keyword_ids)) {
+					$keyword_ids = $this->filter_words_match($index_words, $keyword_part);
+					if (sizeof($keyword_ids)) {
 						foreach ($keyword_ids as $id) {
 							$id_words[] = $id;
 						}
@@ -647,12 +648,13 @@ class fulltext_native_ja extends fulltext_native
 		// else we only need one id
 		else {
 			$len = utf8_strlen(str_replace('*', '', $keyword));
+			$keyword_ids = $this->filter_words_match($index_words, $keyword);
 			if (($len < $this->word_length['min'] && !$this->Util->partialMatch('Kanji', $keyword))
 			 || $len > $this->word_length['max'])
 			{
 				$this->common_words[] = $keyword;
 			}
-			else if ($this->in_words_match($index_words, $keyword, $keyword_ids))	{
+			else if (sizeof($keyword_ids))	{
 				switch ($mode) {
 					case 'must_contain' :
 						$this->{$mode . '_ids'}[] = $keyword_ids;
@@ -683,9 +685,8 @@ class fulltext_native_ja extends fulltext_native
 	*
 	* @param array $words
 	* @param string $word
-	* @param array $word_ids
 	*/
-	private function in_words_match($words, $word, &$word_ids)
+	private function filter_words_match($words, $word)
 	{
 		$word = preg_quote($word, '#');
 		$word = str_replace('\*', '.*', $word);
@@ -699,7 +700,7 @@ class fulltext_native_ja extends fulltext_native
 			}
 		}
 
-		return (sizeof($word_ids))? true : false;
+		return $word_ids;
 	}
 
 	private $must_contain_words = array();

@@ -769,7 +769,7 @@ class Util_JapaneseChar_Exception extends Exception {
 		if (isset ( $this->xdebug_message ) && $this->xdebug_message) {
 			die ( '<table>' . $this->xdebug_message . '</table>' );
 		} else {
-			$message = '[MethodFileArchitecture Error] ';
+			$message = '[Util_JapaneseChar Error] ';
 			$message .= $this->getMessage ();
 			die ( $message );
 		}

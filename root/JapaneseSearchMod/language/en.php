@@ -56,8 +56,8 @@ $lang = array_merge($lang, array(
 'JSM_FULLTEXTNATIVEJA_SEARCH_MATCH_TYPE_FULL'	=> '完全一致',
 'JSM_FULLTEXTNATIVEJA_SEARCH_MATCH_TYPE_PARTIAL'	=> '部分一致',
 'JSM_FULLTEXTNATIVEJA_CANONICAL_TRANSFORMATION'	=> '文字を正準化する',
-'JSM_FULLTEXTNATIVEJA_CANONICAL_TRANSFORMATION_EXPLAIN'	=> 'インデクス作成時と検索処理時に文字を正準化します。<br /> 半角ｶﾀｶﾅ は 全角カタカナ に、全角ａｌｐｈａｎｕｍｅｒｉｃ は 半角alphanumeric に、大文字ALPHABET は 小文字alphabet に自動的に変換されます。検索精度は向上しますが、サーバの CPU 負荷も増大します。',
-'JSM_FULLTEXTNATIVEJA_SEARCH_MATCH_TYPE_EXPLAIN'	=> '<b>完全一致</b> : 検索キーワードに完全に一致するインデクスのみ検索にヒットします。<br /><b>部分一致</b> : 部分一致するインデクスは全て検索にヒットします。例えば検索キーワードが "サーチ" の場合、 "サーチエンジン" や "ファンサーチ" といったインデクスもヒットします。検索精度は非常に向上しますが、サーバの CPU 負荷も増大します。',
+'JSM_FULLTEXTNATIVEJA_CANONICAL_TRANSFORMATION_EXPLAIN'	=> 'インデクス作成時と検索処理時に文字を正準化します。<br /> 半角ｶﾀｶﾅ は 全角カタカナ に、全角ａｌｐｈａｎｕｍｅｒｉｃ は 半角alphanumeric に、大文字ALPHABET は 小文字alphabet に自動的に変換されます。検索精度は向上しますが、サーバの CPU負荷 も増大します。',
+'JSM_FULLTEXTNATIVEJA_SEARCH_MATCH_TYPE_EXPLAIN'	=> '<b>完全一致</b> : 検索キーワードに完全に一致するインデクスのみ検索にヒットします。<br /><b>部分一致</b> : 部分一致するインデクスは全て検索にヒットします。例えば検索キーワードが "サーチ" の場合、 "サーチエンジン" や "ファンサーチ" といったインデクスもヒットします。検索精度は非常に向上しますが、サーバの CPU負荷 も増大します。',
 'JSM_FULLTEXTNATIVEJA_MIN_SEARCH_CHARS_EXPLAIN'	=> 'この数より小さい字数のキーワードはインデクスの対象となりません。ただし漢字を１つでも含むキーワードは必ずインデクス化されます。',
 'JSM_FULLTEXTNATIVEJA_MAX_SEARCH_CHARS_EXPLAIN'	=> 'この数を超える字数のキーワードはインデクスの対象となりません。ただし漢字を１つでも含むキーワードは必ずインデクス化されます。',
 
